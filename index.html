@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Game Pembelajaran Anak</title>
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/e/ec/Lambang_Kabupaten_Sumbawa.png" />
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #eee;
+      overflow: hidden;
+      /* Mencegah scroll ganda */
+    }
+
+    .iframe-container {
+      width: 100%;
+      height: 100dvh;
+      /* Menggunakan dvh agar pas di mobile browser */
+      overflow: hidden;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="iframe-container">
+    <iframe id="app" src="" scrolling="yes" allowfullscreen="true" webkitallowfullscreen="true"
+      mozallowfullscreen="true" allow="fullscreen; camera; microphone; display-capture; geolocation;">
+    </iframe>
+  </div>
+
+  <script>
+    // URL dasar Google Apps Script Web App Anda (Deployment versi terbaru)
+    const gasBaseUrl = "https://script.google.com/macros/s/AKfycbzKCay2rNxUmvfWVJ0t_izGIr4AUzcJjh_Y0nLIxRX5QiYXCE4WG-_8ryV3TY1YD6AA9g/exec";
+
+    // Set src iframe ke URL GAS
+    document.getElementById('app').src = gasBaseUrl;
+  </script>
+</body>
+
+</html>
