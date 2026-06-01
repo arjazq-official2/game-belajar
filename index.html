@@ -42,11 +42,18 @@
   </div>
 
   <script>
+    // Ambil parameter dari URL (misal ?page=admin)
+    const urlParams = new URLSearchParams(window.location.search);
+    const page = urlParams.get('page') || '';
+
     // URL dasar Google Apps Script Web App Anda (Deployment versi terbaru)
+    // Untuk masa pengujian tanpa deploy, ubah /exec di bawah ini menjadi /dev 
+    // jika Anda menguji secara lokal.
     const gasBaseUrl = "https://script.google.com/macros/s/AKfycbzKCay2rNxUmvfWVJ0t_izGIr4AUzcJjh_Y0nLIxRX5QiYXCE4WG-_8ryV3TY1YD6AA9g/exec";
 
-    // Set src iframe ke URL GAS
-    document.getElementById('app').src = gasBaseUrl;
+    // Set src iframe ke URL GAS dengan parameter yang sesuai
+    const finalUrl = gasBaseUrl + (page ? "?page=" + page : "");
+    document.getElementById('app').src = finalUrl;
   </script>
 </body>
 
